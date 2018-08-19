@@ -22,6 +22,8 @@ public class JYHospitalSystem {
         
         String name2 = "Ambrose";
         System.out.println("MY name is " + name2);
+        
+        System.out.println("MY name is " + name2 + name);
     }
     
 }
