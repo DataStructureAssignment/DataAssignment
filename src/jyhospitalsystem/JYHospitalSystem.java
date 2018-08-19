@@ -18,6 +18,7 @@ public class JYHospitalSystem {
         String name = "Arthur";
         
         System.out.println(name);
+        System.out.println("My name is " + name);
     }
     
 }
