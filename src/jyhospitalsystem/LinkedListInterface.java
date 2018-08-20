@@ -12,7 +12,7 @@ package jyhospitalsystem;
 public interface LinkedListInterface<T> {
     
     public void addToInfront(T newEntry);
-    public void addToBehind(T newEntry, int seriousnes);
+    public void addToBehind(T newEntry);
     
     public T removeInfront();
     public T removeBehind();

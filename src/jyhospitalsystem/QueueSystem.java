@@ -58,7 +58,7 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
     }
 
     @Override
-    public void addToBehind(T newPatient, int seriousness) {
+    public void addToBehind(T newPatient) {
         Node newNode = new Node(newPatient);
 
      if(!isEmpty()){

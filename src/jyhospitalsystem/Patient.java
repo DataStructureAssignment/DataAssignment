@@ -9,15 +9,38 @@ import java.util.Date;
 
 public class Patient {
     private String name;
-    private int sickness;
-    private int seriousness;
-    private Date date;
+    private int symptoms;
+    private String priority;
+    private Date date; 
     
-    public Patient(String name, int sickness, int seriousness) {
+    public Patient(String name, int symptoms) {
         this.name = name;
-        this.sickness = sickness;
-        this.seriousness = seriousness;
+        this.symptoms = symptoms;
         this.date = new Date();
+        Priority(symptoms);
+    }
+    
+    public void Priority(int symptoms){
+        switch (symptoms) {
+                case 1:
+                    priority = "Low";
+                break;
+                case 2:
+                    priority = "Low";
+                break;
+                case 3:
+                    priority = "High";
+                break;
+                case 4:
+                    priority = "High";
+                break;
+                case 5:
+                    priority = "High";
+                break;
+                default:
+                    priority = "Low";
+                break;
+                }
     }
 
     public String getName() {
@@ -28,20 +51,12 @@ public class Patient {
         this.name = name;
     }
 
-    public int getSickness() {
-        return sickness;
+    public int getSymptoms() {
+        return symptoms;
     }
 
-    public void setSickness(int sickness) {
-        this.sickness = sickness;
-    }
-
-    public int getSeriousness() {
-        return seriousness;
-    }
-
-    public void setSeriousness(int seriousness) {
-        this.seriousness = seriousness;
+    public void setSymptoms(int symptoms) {
+        this.symptoms = symptoms;
     }
 
     public Date getDate() {
@@ -52,9 +67,17 @@ public class Patient {
         this.date = date;
     }
 
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
     @Override
     public String toString() {
-        return "Patient Name: " + name + "\nSickness: " + sickness + "\nSeriousness: " + seriousness + "\nDate: " + date;
+        return "Patient Name: " + name + "\nSickness: " + symptoms + "Priority: " + priority + "\nDate: " + date;
     }
     
 }
