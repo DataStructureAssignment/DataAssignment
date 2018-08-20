@@ -39,14 +39,14 @@ public class JYHospitalSystem {
     }
     }
         public static void PatientRegistration(){
+        LinkedListInterface<Patient> patientQueue = new QueueSystem<>();
         Scanner scn = new Scanner(System.in);
         Scanner scnString = new Scanner(System.in);
-       int choice = scn.nextInt();
        scn.reset();
        String name = "";
        int symptoms = -1;
-       int seriousness = 0;
-      if (choice == 1){
+        String choice2 = "";
+       while (!"n".equals(choice2)){
                System.out.print("Enter patient name: ");
                
                name = scnString.nextLine();
@@ -58,17 +58,17 @@ public class JYHospitalSystem {
                System.out.println("5. EMERGENCY");
                scn.reset();
                symptoms = scn.nextInt();
+               scn.reset();
                
-      }
-      else{
-               System.out.println("Enter the right input!");
-       }
-       Patient patient1 = new Patient(name,symptoms);
-    System.out.println(patient1.toString());
-    
-    LinkedListInterface<Patient> patientQueue = new QueueSystem<>();
-    
+      
+    Patient patient1 = new Patient(name,symptoms);
     patientQueue.addToBehind(patient1);
+    System.out.print("Do you want to add another patient?");
+   choice2 = scn.nextLine();
+    scn.reset();
+   }
+    System.out.print(patientQueue.toString());
+       
 }
         
         public static void doctorManagement(){
