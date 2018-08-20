@@ -15,7 +15,6 @@ public interface LinkedListInterface<T> {
     public void addToBehind(T newEntry);
     
     public T removeInfront();
-    public T removeBehind();
     
     public boolean isEmpty();
     

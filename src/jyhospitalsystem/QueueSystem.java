@@ -75,14 +75,21 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
 
     @Override
     public T removeInfront() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        T data = null;
+        data = firstNode.patient;
+        firstNode = firstNode.next;
+        return data;
     }
 
     @Override
-    public T removeBehind() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString(){
+    String s1 = "";
+    Node tempNode = firstNode;
+    while (tempNode.next != null){
+        s1 = tempNode.patient + "\n";
     }
-
+    return s1;
+}
     @Override
     public boolean isEmpty() {
         return (firstNode == null && lastNode == null && lastHighPrioNode == null && lastLowPrioNode == null);
