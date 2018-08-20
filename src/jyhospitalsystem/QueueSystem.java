@@ -62,8 +62,8 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
         Node newNode = new Node(newPatient);
 
      if(!isEmpty()){
-//         lastNode.next = newNode;
-//         newNode.previous = lastNode;
+         lastNode.next = newNode;
+         newNode.previous = lastNode;
      }
      else {
          newNode.next = lastNode;
@@ -87,6 +87,7 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
     Node tempNode = firstNode;
     while (tempNode.next != null){
         s1 = tempNode.patient + "\n";
+        tempNode = tempNode.next;
     }
     return s1;
 }

@@ -60,14 +60,14 @@ public class JYHospitalSystem {
                symptoms = scn.nextInt();
                scn.reset();
                
-      
-    Patient patient1 = new Patient(name,symptoms);
-    patientQueue.addToBehind(patient1);
+     Patient patient1 = new Patient(name,symptoms);
+     patientQueue.addToBehind(patient1);
     System.out.print("Do you want to add another patient?");
-   choice2 = scn.nextLine();
-    scn.reset();
+   choice2 = scnString.nextLine();
+    scnString.reset();
    }
-    System.out.print(patientQueue.toString());
+   
+   System.out.print(patientQueue.toString());
        
 }
         
