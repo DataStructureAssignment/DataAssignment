@@ -5,6 +5,8 @@
  */
 package jyhospitalsystem;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -37,6 +39,7 @@ public class JYHospitalSystem {
         switch (choice){
             case 1: QueueManagement(); 
             break;
+            case 2: doctorManagement();
             default: System.out.println("Wrong choice!");
             break;
 
@@ -81,4 +84,43 @@ public class JYHospitalSystem {
         p1 = new Patient(name,sickness,seriousness);
     System.out.println(p1.toString());
 }
+        
+        public static void doctorManagement(){
+        List<Doctor> doctor = new ArrayList<>(10);  
+        doctor.add(new Doctor("001","Ambrose","Male","20","0145905857","PV13","normal","outpatient"));
+        doctor.add(new Doctor("002","Alex","Male","21","012313232","PV14","retired","emergency"));
+        
+        Scanner scn = new Scanner(System.in);
+        System.out.print("Enter the doctor ID: ");
+        String id = scn.nextLine();
+        scn.reset();
+        System.out.print("Enter the doctor name: ");
+        String name = scn.nextLine();
+        scn.reset();
+        System.out.print("Enter the doctor Gender: ");
+        String gender = scn.nextLine();
+        scn.reset();
+        System.out.print("Enter the doctor Age: ");
+        String age = scn.nextLine();
+        scn.reset();
+        System.out.print("Enter the doctor Phone Number: ");
+        String number = scn.nextLine();
+        scn.reset();
+        System.out.print("Enter the doctor Address: ");
+        String address = scn.nextLine();
+        scn.reset();
+        System.out.print("Enter the doctor Status: ");
+        String status = scn.nextLine();
+        scn.reset();
+        System.out.print("Enter the doctor category: ");
+        String category = scn.nextLine();
+        
+        Doctor d1;
+        
+        d1 = new Doctor(id ,name, gender, age, number, address, status, category);
+        
+        System.out.println(d1.toString());
+        
+        System.out.println(doctor.get(2));
+        }
 }
