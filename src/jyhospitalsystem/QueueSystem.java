@@ -54,7 +54,8 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
         
         if(enqueuedPatient.getPriority().equals("High")){
             if(lastHighPriorNode == null){
-                newNode.next = lastHighPriorNode;
+                newNode.next = firstNode;
+                firstNode = newNode;
                 lastHighPriorNode = newNode;
             }else{
             newNode.next = lastHighPriorNode.next;
@@ -68,17 +69,21 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
         }
      }
      else {
-        newNode.next = firstNode;
+//        newNode.next = firstNode;
         
         firstNode = newNode;
         lastNode = newNode;
         
         if(enqueuedPatient.getPriority().equals("High")){
-            newNode.next = lastHighPriorNode;
+//            lastHighPriorNode.next = newNode;
+//            newNode.next = lastHighPriorNode;
             lastHighPriorNode = newNode;
         } else {
             lastHighPriorNode = null;
         }
+//        
+//        firstNode = newNode;
+//        lastNode = newNode;
      }
          
 

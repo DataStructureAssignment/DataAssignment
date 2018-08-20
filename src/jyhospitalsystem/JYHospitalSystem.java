@@ -43,12 +43,20 @@ public class JYHospitalSystem {
         Patient patient1 = new Patient("Mike", 1);
         Patient patient2 = new Patient("Micheal", 1);
         Patient patient3 = new Patient("Mitch", 3);
+        Patient patient4 = new Patient("Meak", 1);
+        Patient patient5 = new Patient("Ali", 2);
+        Patient patient6 = new Patient("Abu", 4);
+        Patient patient7 = new Patient("Ahmad", 5);
             
         LinkedListInterface<Patient> patientQueue = new QueueSystem<>();
         
         patientQueue.add(patient1);
         patientQueue.add(patient2);
         patientQueue.add(patient3);
+        patientQueue.add(patient4);
+        patientQueue.add(patient5);
+        patientQueue.add(patient6);
+        patientQueue.add(patient7);
         
 //        Scanner scn = new Scanner(System.in);
 //        Scanner scnString = new Scanner(System.in);
