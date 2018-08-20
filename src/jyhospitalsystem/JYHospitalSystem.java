@@ -73,9 +73,12 @@ public class JYHospitalSystem {
       else{
                System.out.println("Enter the right input!");
        }
-       Patient p1;
-        p1 = new Patient(name,sickness,seriousness);
-    System.out.println(p1.toString());
+       Patient patient1 = new Patient(name,sickness,seriousness);
+    System.out.println(patient1.toString());
+    
+    LinkedListInterface<Patient> patientQueue = new QueueSystem<>();
+    
+    patientQueue.addToBehind(patient1, seriousness);
 }
         
         public static void doctorManagement(){
