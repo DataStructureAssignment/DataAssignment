@@ -4,49 +4,25 @@
  * and open the template in the editor.
  */
 package jyhospitalsystem;
+import java.util.Date;
 
-/**
- *
- * @author asus-pc
- */
+
 public class Patient {
-    private String patientName;
-    private String patientId;
-    private int patientNumber;
-
-    public String getPatientName() {
-        return patientName;
+    private String name;
+    private int sickness;
+    private int seriousness;
+    private Date date;
+    
+    public Patient(String name, int sickness, int seriousness) {
+        this.name = name;
+        this.sickness = sickness;
+        this.seriousness = seriousness;
+        this.date = new Date();
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
-
-    public String getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
-    }
-
-    public int getPatientNumber() {
-        return patientNumber;
-    }
-
-    public void setPatientNumber(int patientNumber) {
-        this.patientNumber = patientNumber;
+    @Override
+    public String toString() {
+        return "Patient Name: " + name + "\nSickness: " + sickness + "\nSeriousness: " + seriousness + "\nDate: " + date;
     }
     
-    public Patient(){
-        this.patientId = null;
-        this.patientName = "";
-        this.patientNumber = 0;
-    }
-    
-    public Patient(String patientName, String patientId, int patientNumber){
-        this.patientId = patientId;
-        this.patientName = patientName;
-        this.patientNumber = patientNumber;
-    }
 }
