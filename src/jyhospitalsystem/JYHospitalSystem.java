@@ -15,15 +15,7 @@ public class JYHospitalSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String name = "Arthur";
         
-        System.out.println(name);
-        System.out.println("My name is " + name);
-        
-        String name2 = "Ambrose";
-        System.out.println("MY name is " + name2);
-        
-        System.out.println("MY name is " + name2 + name);
     }
     
 }
