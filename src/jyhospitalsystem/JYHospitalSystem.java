@@ -39,33 +39,44 @@ public class JYHospitalSystem {
     }
     }
         public static void PatientRegistration(){
+            
+        Patient patient1 = new Patient("Mike", 1);
+        Patient patient2 = new Patient("Micheal", 1);
+        Patient patient3 = new Patient("Mitch", 3);
+            
         LinkedListInterface<Patient> patientQueue = new QueueSystem<>();
-        Scanner scn = new Scanner(System.in);
-        Scanner scnString = new Scanner(System.in);
-       scn.reset();
-       String name = "";
-       int symptoms = -1;
-        String choice2 = "";
-       while (!"n".equals(choice2)){
-               System.out.print("Enter patient name: ");
-               
-               name = scnString.nextLine();
-               System.out.println("What are the notable symptoms: ");
-               System.out.println("1. Running nose, Fever");
-               System.out.println("2. Cough, Sore throat");
-               System.out.println("3. Broken bones");
-               System.out.println("4. Breathing difficulties");
-               System.out.println("5. EMERGENCY");
-               scn.reset();
-               symptoms = scn.nextInt();
-               scn.reset();
-               
-     Patient patient1 = new Patient(name,symptoms);
-     patientQueue.addToBehind(patient1);
-    System.out.print("Do you want to add another patient?");
-   choice2 = scnString.nextLine();
-    scnString.reset();
-   }
+        
+        patientQueue.add(patient1);
+        patientQueue.add(patient2);
+        patientQueue.add(patient3);
+        
+//        Scanner scn = new Scanner(System.in);
+//        Scanner scnString = new Scanner(System.in);
+//       scn.reset();
+//       String name = "";
+//       int symptoms = -1;
+//        String choice2 = "";
+//       while (!"n".equals(choice2)){
+//               System.out.print("Enter patient name: ");1
+
+//               
+//               name = scnString.nextLine();
+//               System.out.println("What are the notable symptoms: ");
+//               System.out.println("1. Running nose, Fever");
+//               System.out.println("2. Cough, Sore throat");
+//               System.out.println("3. Broken bones");
+//               System.out.println("4. Breathing difficulties");
+//               System.out.println("5. EMERGENCY");
+//               scn.reset();
+//               symptoms = scn.nextInt();
+//               scn.reset();
+//               
+//     Patient newPatient = new Patient(name,symptoms);
+//     patientQueue.addToBehind(newPatient);
+//    System.out.print("Do you want to add another patient?");
+//   choice2 = scnString.nextLine();
+//    scnString.reset();
+//   }
    
    System.out.print(patientQueue.toString());
        

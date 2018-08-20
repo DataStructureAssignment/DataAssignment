@@ -15,8 +15,7 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
         private T patient;
         private Node next; //reference to next node, 
         //it will point to the next node
-        private Node previous;//reference to previous node, 
-        //it will point to the previous node
+        private Node previous;
         
         public Node(T patient){
             this.patient = patient;
@@ -26,53 +25,64 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
         
         public Node(T patient, Node next, Node previous){
             this.patient = patient;
-            this.next = next; // link to next
-            this.previous = previous; // link to previous
+            this.next = next;
+            this.previous = previous;// link to next
         }
     }
     
     private Node firstNode;
     private Node lastNode;
-    private Node lastHighPrioNode;
-    private Node lastLowPrioNode;
+    private Node lastHighPriorNode;
+    private Node lastLowPriorNode;
     
     public QueueSystem(){
     firstNode = null;
     lastNode = null;
-    lastHighPrioNode = null;
-    lastLowPrioNode = null;
+    lastHighPriorNode = null;
+    lastLowPriorNode = null;
     }
 
     @Override
-    public void addToInfront(T newPatient) {
-        Node newNode = new Node (newPatient);
+    public void add(T newPatient) {
+        
+        Patient enqueuedPatient = (Patient) newPatient;
 
-     if(!isEmpty()){
-         newNode.next = firstNode; 
-         firstNode.previous = newNode; //link the newNode to firstNode
-     }
-     else{
-         lastNode = newNode; // If is empty, newNode is the lastNode
-         }
-         firstNode = newNode; 
-    }
-
-    @Override
-    public void addToBehind(T newPatient) {
         Node newNode = new Node(newPatient);
 
-     if(!isEmpty()){
-         lastNode.next = newNode;
-         newNode.previous = lastNode;
+    if(!isEmpty()){
+        
+        
+        if(enqueuedPatient.getPriority().equals("High")){
+            if(lastHighPriorNode == null){
+                newNode.next = lastHighPriorNode;
+                lastHighPriorNode = newNode;
+            }else{
+            newNode.next = lastHighPriorNode.next;
+            lastHighPriorNode.next = newNode;
+            lastHighPriorNode = newNode;
+            }
+        } else {
+            lastNode.next = newNode;
+        
+            lastNode = newNode;
+        }
      }
      else {
-         newNode.next = lastNode;
-         firstNode = newNode;
+        newNode.next = firstNode;
+        
+        firstNode = newNode;
+        lastNode = newNode;
+        
+        if(enqueuedPatient.getPriority().equals("High")){
+            newNode.next = lastHighPriorNode;
+            lastHighPriorNode = newNode;
+        } else {
+            lastHighPriorNode = null;
+        }
      }
          
-     lastNode = newNode;
-    }
 
+}
     @Override
     public T removeInfront() {
         T data = null;
@@ -83,37 +93,56 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
 
     @Override
     public String toString(){
-    String s1 = "";
+    String queueOutput = "";
     Node tempNode = firstNode;
-    while (tempNode.next != null){
-        s1 = tempNode.patient + "\n";
+    while (tempNode != null){
+        queueOutput += tempNode.patient + "\n";
         tempNode = tempNode.next;
     }
-    return s1;
+    return queueOutput;
 }
     @Override
     public boolean isEmpty() {
-        return (firstNode == null && lastNode == null && lastHighPrioNode == null && lastLowPrioNode == null);
+        return (firstNode == null && lastNode == null && lastHighPriorNode == null && lastLowPriorNode == null);
     }
 
     @Override
     public void clear() {
         firstNode = null;
         lastNode = null;
-        lastHighPrioNode = null;
-        lastLowPrioNode = null;
+        lastHighPriorNode = null;
+        lastLowPriorNode = null;
     }
     
     @Override
     public void queueToHighPrio(T newEntry) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Node newNode = new Node(newEntry);
+        
+        if(!isEmpty()){
+            lastHighPriorNode.next = newNode;
+        }
+        else {
+            firstNode = newNode;
+            lastNode = newNode;
+        }
+         
+            lastHighPriorNode = newNode;
     }
 
     @Override
     public void queueToLowPrio(T newEntry) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Node newNode = new Node(newEntry);
+        
+        if(!isEmpty()){
+            lastHighPriorNode.next = newNode;
+        }
+        else {
+            firstNode = newNode;
+            newNode.next = lastNode;
+        }
+        
+            lastNode = newNode;
     }
-
-    
-    
+        
+        
 }

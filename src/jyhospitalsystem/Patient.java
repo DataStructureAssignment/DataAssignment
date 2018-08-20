@@ -77,7 +77,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient Name: " + name + "\nSickness: " + symptoms + "Priority: " + priority + "\nDate: " + date;
+        return "Patient Name: " + name + "\nSickness: " + symptoms + "\nPriority: " + priority + "\nDate: " + date;
     }
     
 }
