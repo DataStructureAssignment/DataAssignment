@@ -20,6 +20,38 @@ public class Patient {
         this.date = new Date();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSickness() {
+        return sickness;
+    }
+
+    public void setSickness(int sickness) {
+        this.sickness = sickness;
+    }
+
+    public int getSeriousness() {
+        return seriousness;
+    }
+
+    public void setSeriousness(int seriousness) {
+        this.seriousness = seriousness;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Patient Name: " + name + "\nSickness: " + sickness + "\nSeriousness: " + seriousness + "\nDate: " + date;
