@@ -20,13 +20,6 @@ public class JYHospitalSystem {
      */
     public static void main(String[] args) {
 
-        System.out.println("My name is " );
-        
-        String name2 = "Ambrose";
-        System.out.println("MY name is " + name2);
-        
-        System.out.println("MY name is " + name2);
-        
         Scanner scnInt = new Scanner(System.in);
         System.out.println("==========================");
         System.out.println("Hospital Management System");
