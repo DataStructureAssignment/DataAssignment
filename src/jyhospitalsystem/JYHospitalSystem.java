@@ -108,11 +108,7 @@ public class JYHospitalSystem {
         System.out.print("Enter the doctor category: ");
         String category = scn.nextLine();
         
-        Doctor d1;
-        
-        d1 = new Doctor(id ,name, gender, age, number, address, status, category);
-        
-        System.out.println(d1.toString());
+        doctor.add(new Doctor(id ,name, gender, age, number, address, status, category));
         
         System.out.println(doctor.get(2));
         }
