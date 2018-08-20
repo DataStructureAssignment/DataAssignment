@@ -10,7 +10,7 @@ import java.util.Date;
 public class Patient {
     private String name;
     private int sickness;
-    private int seriousness = -1;
+    private int seriousness;
     private Date date;
     
     public Patient(String name, int sickness, int seriousness) {
@@ -22,7 +22,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "name=" + name + ", sickness=" + sickness + ", seriousness=" + seriousness  + ", time=" + date + '}';
+        return "Patient Name: " + name + "\nSickness: " + sickness + "\nSeriousness: " + seriousness + "\nDate: " + date;
     }
     
 }
