@@ -59,6 +59,28 @@ public class JYHospitalSystem {
         patientQueue.add(patient6);
         patientQueue.add(patient7);
         
+        System.out.print(patientQueue.toString());
+           
+        patientQueue.clear();
+        
+        patientQueue.add(patient1);
+        patientQueue.add(patient2);
+        patientQueue.add(patient3);
+        patientQueue.add(patient4);
+        patientQueue.add(patient5);
+        patientQueue.add(patient6);
+        patientQueue.add(patient7);
+        
+        patientQueue.moveToHighPrior();
+        
+//        long currentTime = System.currentTimeMillis();
+//        long duration = (currentTime - patient1.getTime()) / 1000;
+//        
+//        if (duration >= 0) {
+//            patientQueue.moveToHighPrior();
+//            patient1.setPriority("High");
+//        }
+        
 //        Scanner scn = new Scanner(System.in);
 //        Scanner scnString = new Scanner(System.in);
 //       scn.reset();

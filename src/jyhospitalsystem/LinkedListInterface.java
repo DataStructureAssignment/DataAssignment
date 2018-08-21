@@ -20,5 +20,7 @@ public interface LinkedListInterface<T> {
     public void clear();
     
     public String toString();
+
+    public void moveToHighPrior();
     
 }

@@ -10,7 +10,5 @@ package jyhospitalsystem;
  * @author User
  */
 public interface Dynamicable<T> {
-    public void queueToHighPrio(T newEntry);
-    
-    public void queueToLowPrio(T newEntry);
+    public void moveToHighPrior();
 }

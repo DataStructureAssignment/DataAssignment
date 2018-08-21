@@ -10,13 +10,13 @@ import java.util.Date;
 public class Patient {
     private String name;
     private int symptoms;
-    private String priority;
-    private Date date; 
+    protected String priority;
+    private long time; 
     
     public Patient(String name, int symptoms) {
         this.name = name;
         this.symptoms = symptoms;
-        this.date = new Date();
+        this.time = System.currentTimeMillis();
         Priority(symptoms);
     }
     
@@ -59,12 +59,12 @@ public class Patient {
         this.symptoms = symptoms;
     }
 
-    public Date getDate() {
-        return date;
+    public long getTime() {
+        return time;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTime(long time) {
+        this.time = time;
     }
 
     public String getPriority() {
@@ -77,7 +77,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient Name: " + name + "\nSickness: " + symptoms + "\nPriority: " + priority + "\nDate: " + date;
+        return "Patient Name: " + name + "\nSickness: " + symptoms + "\nPriority: " + priority + "\nTime: " + time;
     }
     
 }

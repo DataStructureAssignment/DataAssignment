@@ -9,7 +9,7 @@ package jyhospitalsystem;
  *
  * @author User
  */
-public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
+public class QueueSystem<T> implements LinkedListInterface<T> {
     
     class Node{
         private T patient;
@@ -114,34 +114,25 @@ public class QueueSystem<T> implements LinkedListInterface<T>, Dynamicable<T> {
     }
     
     @Override
-    public void queueToHighPrio(T newEntry) {
-        Node newNode = new Node(newEntry);
+    public void moveToHighPrior() {
+        int lenghtOfStay = 0; //change lenght of stay to 5
         
-        if(!isEmpty()){
-            lastHighPriorNode.next = newNode;
-        }
-        else {
-            firstNode = newNode;
-            lastNode = newNode;
-        }
-         
-            lastHighPriorNode = newNode;
-    }
+        Node tempNode = lastHighPriorNode.next;
+        Patient patient = (Patient)tempNode.patient;
+        
+        while(patient.getTime() >= lenghtOfStay && tempNode != null){
+            
+            long currentTime = System.currentTimeMillis();
+            long duration = (currentTime - patient.getTime()) / 1000;
 
-    @Override
-    public void queueToLowPrio(T newEntry) {
-        Node newNode = new Node(newEntry);
-        
-        if(!isEmpty()){
-            lastHighPriorNode.next = newNode;
+            System.out.println(duration);
+            
+            Patient selectedPatient = (Patient)tempNode.patient;
+            
+            selectedPatient.setPriority("High");
+            lastHighPriorNode = lastHighPriorNode.next;  
+            tempNode = tempNode.next;
         }
-        else {
-            firstNode = newNode;
-            newNode.next = lastNode;
-        }
-        
-            lastNode = newNode;
     }
-        
-        
+    
 }
