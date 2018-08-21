@@ -33,6 +33,7 @@ public class JYHospitalSystem {
             case 1: PatientRegistration(); 
             break;
             case 2: doctorManagement();
+            break;
             default: System.out.println("Wrong choice!");
             break;
 
@@ -95,33 +96,25 @@ public class JYHospitalSystem {
         doctor.add(new Doctor("001","Ambrose","Male","20","0145905857","PV13","normal","outpatient"));
         doctor.add(new Doctor("002","Alex","Male","21","012313232","PV14","retired","emergency"));
         
+        System.out.println("Which option do you want to choose?");
+        System.out.println("1. Add new doctor.\n2. Modify doctor's details");
+        boolean answer = true;
+        
+        //Check choice
+       do{
+        System.out.print("Enter your choice - ");
         Scanner scn = new Scanner(System.in);
-        System.out.print("Enter the doctor ID: ");
-        String id = scn.nextLine();
-        scn.reset();
-        System.out.print("Enter the doctor name: ");
-        String name = scn.nextLine();
-        scn.reset();
-        System.out.print("Enter the doctor Gender: ");
-        String gender = scn.nextLine();
-        scn.reset();
-        System.out.print("Enter the doctor Age: ");
-        String age = scn.nextLine();
-        scn.reset();
-        System.out.print("Enter the doctor Phone Number: ");
-        String number = scn.nextLine();
-        scn.reset();
-        System.out.print("Enter the doctor Address: ");
-        String address = scn.nextLine();
-        scn.reset();
-        System.out.print("Enter the doctor Status: ");
-        String status = scn.nextLine();
-        scn.reset();
-        System.out.print("Enter the doctor category: ");
-        String category = scn.nextLine();
-        
-        doctor.add(new Doctor(id ,name, gender, age, number, address, status, category));
-        
-        System.out.println(doctor.get(2));
+        int option = scn.nextInt();
+        switch(option){
+            case 1: Doctor.addDoctor(doctor);
+            break;
+            case 2: Doctor.modifyDoctor(doctor);
+            break;
+            default: System.out.println("Wrong option!");
+            answer = false;
+            scn.reset();
+            break;
         }
+       }while(answer != true);
+    }
 }
