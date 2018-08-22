@@ -5,6 +5,8 @@
  */
 package jyhospitalsystem;
 
+
+
 /**
  *
  * @author User
@@ -33,13 +35,11 @@ public class QueueSystem<T> implements LinkedListInterface<T> {
     private Node firstNode;
     private Node lastNode;
     private Node lastHighPriorNode;
-    private Node lastLowPriorNode;
     
     public QueueSystem(){
     firstNode = null;
     lastNode = null;
     lastHighPriorNode = null;
-    lastLowPriorNode = null;
     }
 
     @Override
@@ -79,15 +79,31 @@ public class QueueSystem<T> implements LinkedListInterface<T> {
             lastHighPriorNode = null;
         }
      }
-         
-
 }
+    
     @Override
-    public T removeInfront() {
-        T data = null;
-        data = firstNode.patient;
-        firstNode = firstNode.next;
-        return data;
+    public Patient dequeueHighPrior() {
+               
+        Patient dequeuedPatient = null;
+        
+        if(!isEmpty()){
+            dequeuedPatient = (Patient)firstNode.patient;
+            firstNode = firstNode.next;
+        }
+        
+        return dequeuedPatient;
+    }
+
+    @Override
+    public Patient dequeueLowPrior() {
+        Patient dequeuedPatient = null;
+        
+        if(!isEmpty()){
+            dequeuedPatient = (Patient)lastHighPriorNode.next.patient;
+            lastHighPriorNode.next = lastHighPriorNode.next.next;
+        }
+        
+        return dequeuedPatient;
     }
 
     @Override
@@ -102,7 +118,7 @@ public class QueueSystem<T> implements LinkedListInterface<T> {
 }
     @Override
     public boolean isEmpty() {
-        return (firstNode == null && lastNode == null && lastHighPriorNode == null && lastLowPriorNode == null);
+        return (firstNode == null && lastNode == null && lastHighPriorNode == null);
     }
 
     @Override
@@ -110,7 +126,6 @@ public class QueueSystem<T> implements LinkedListInterface<T> {
         firstNode = null;
         lastNode = null;
         lastHighPriorNode = null;
-        lastLowPriorNode = null;
     }
     
     @Override
@@ -135,4 +150,5 @@ public class QueueSystem<T> implements LinkedListInterface<T> {
         }
     }
     
+   
 }
