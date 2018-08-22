@@ -1,9 +1,8 @@
-package jyhospitalsystem;
+package javaapplication27;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class Doctor {
+public class Doctor{
     private String doctorId;
     private String doctorName;
     private String doctorGender;
@@ -12,6 +11,7 @@ public class Doctor {
     private String doctorAddress;
     private String doctorStatus;
     private String doctorCategory;
+    //LinkedListInterface1 <Doctor> doctor = new doctorList<>();
     
     public Doctor(String doctorId, String doctorName, String doctorGender, String doctorAge,
             String doctorPhoneNum, String doctorAddress, String doctorStatus, String doctorCategory){
@@ -95,7 +95,8 @@ public class Doctor {
                 +"\t" + doctorPhoneNum + "\t" + doctorAddress + "\t" + doctorStatus
                 + "\t\t" + doctorCategory;
     }
-    public static void addDoctor(List <Doctor> doctor){
+  
+    public static void addDoctor(LinkedListInterface1<Doctor> doctorList){
         Scanner scn = new Scanner(System.in);
         System.out.print("Enter the doctor ID: ");
         String id = scn.nextLine();
@@ -127,7 +128,7 @@ public class Doctor {
         }
         } 
     
-    public static void modifyDoctor(List <Doctor> doctor){
+    public static void modifyDoctor(LinkedListInterface1 <Doctor> doctor){
         Scanner scn = new Scanner(System.in);
          for(int i=0; i < doctor.size() ; i++){
             System.out.println( i+1 + "\t" + doctor.get(i));
@@ -180,5 +181,4 @@ public class Doctor {
         }
         System.out.println(doctor.get(0));
     }
-    
 }
