@@ -122,9 +122,17 @@ public class JYHospitalSystem {
 }
         
         public static void doctorManagement(){
-        List<Doctor> doctor = new ArrayList<>(10);  
-        doctor.add(new Doctor("001","Ambrose","Male","20","0145905857","PV13","normal","outpatient"));
-        doctor.add(new Doctor("002","Alex","Male","21","012313232","PV14","retired","emergency"));
+        LinkedListInterface1<Doctor> doctor = new doctorList<>();  
+        doctor.add(new Doctor("001","Ambrose","Male","20","0145905857","PV13","Active","Outpatient"));
+        doctor.add(new Doctor("002","Chee Li Jia","Male","33","0121334545","Pv21","Retired","Emergency"));
+        doctor.add(new Doctor("003","Arthur","Male","40","0177856335","Jalan Sentul","Active","Outpatient"));
+        doctor.add(new Doctor("004","Alex","Male","60","0129943234","Klang","Active","Outpatient"));
+        doctor.add(new Doctor("005","Jackie","Male","35","0138954788","PV14","Active","Outpatient"));
+        doctor.add(new Doctor("006","Jolin","Female","21","0126663245","PV14","retired","Emergency"));
+        doctor.add(new Doctor("007","Emily","Female","30","0163560089","Shah Alam","Active","Outpatient"));
+        doctor.add(new Doctor("008","Alex","Male","28","0185367822","Subang Jaya","Active","Emergency"));
+        doctor.add(new Doctor("009","John","Male","37","0154577887","Setapak","Active","Outpatient"));
+        doctor.add(new Doctor("002","Jessie","Female","26","0146789996","Kluang","Active","Outpatient"));
         
         System.out.println("Which option do you want to choose?");
         System.out.println("1. Add new doctor.\n2. Modify doctor's details");
