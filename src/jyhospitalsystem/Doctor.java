@@ -1,4 +1,4 @@
-package javaapplication27;
+package jyhospitalsystem;
 
 import java.util.Scanner;
 
