@@ -13,7 +13,9 @@ public interface LinkedListInterface<T> {
     
     public void add(T newEntry);
     
-    public T removeInfront();
+    public Patient dequeueHighPrior();
+    
+    public Patient dequeueLowPrior();
     
     public boolean isEmpty();
     

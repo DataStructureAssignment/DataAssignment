@@ -5,9 +5,12 @@
  */
 package jyhospitalsystem;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -33,6 +36,8 @@ public class JYHospitalSystem {
             case 1: PatientRegistration(); 
             break;
             case 2: doctorManagement();
+            break;
+            case 3: runSimulation();
             break;
             default: System.out.println("Wrong choice!");
             break;
@@ -72,6 +77,9 @@ public class JYHospitalSystem {
         patientQueue.add(patient7);
         
         patientQueue.moveToHighPrior();
+//        
+//        patientQueue.dequeueHighPrior();
+//        patientQueue.dequeueLowPrior();
         
 //        long currentTime = System.currentTimeMillis();
 //        long duration = (currentTime - patient1.getTime()) / 1000;
@@ -109,7 +117,7 @@ public class JYHospitalSystem {
 //    scnString.reset();
 //   }
    
-   System.out.print(patientQueue.toString());
+//   System.out.print("\n"+ patientQueue.toString());
        
 }
         
@@ -139,4 +147,40 @@ public class JYHospitalSystem {
         }
        }while(answer != true);
     }
+        
+        public static void runSimulation(){
+        
+        Patient[] patientList = new Patient[7];
+        patientList[0] = new Patient("Mike", 1);
+        patientList[1] = new Patient("Micheal", 1);
+        patientList[2] = new Patient("Mitch", 3);
+        patientList[3] = new Patient("Meak", 1);
+        patientList[4] = new Patient("Ali", 2);
+        patientList[5] = new Patient("Abu", 4);
+        patientList[6] = new Patient("Ahmad", 5);
+        
+        LinkedListInterface<Patient> patientQueue = new QueueSystem<>();
+        
+        final Timer arrivalTimer = new Timer();
+        final TimerTask arrival =  new TimerTask(){
+            boolean run = true;
+            int i = 0;
+            public void run(){
+                if (i >= patientList.length) {
+                    arrivalTimer.cancel();
+                    arrivalTimer.purge();
+                    return;
+                } else {
+                    patientList[i].setTime(System.currentTimeMillis());
+                    patientQueue.add(patientList[i]);
+                    i += 1;
+                    System.out.print(patientQueue.toString());
+                    System.out.println("======================");
+                }
+            }
+            
+        };
+        arrivalTimer.scheduleAtFixedRate(arrival,0,1000); 
+        
+        }
 }
